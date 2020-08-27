@@ -1,0 +1,266 @@
+/* - Very Light Grayish Blue: hsl(240, 78%, 98%)
+- Light Grayish Blue: hsl(234, 14%, 74%)
+- Grayish Blue: hsl(233, 13%, 49%)
+- Dark Grayish Blue: hsl(232, 13%, 33%) */
+
+/*SELECTED COLOR
+linear-gradient(hsl(236, 72%, 79%),hsl(237, 63%, 64%)) 
+*/
+
+/*/////////////////////////////////////////////////////////
+/////////////////////// Main Styles    ///////////////////
+/////////////////////////////////////////////////////////*/
+
+:root {
+    --Very-Light-Grayish-Blue: hsl(240, 78%, 98%);
+    --Light-Grayish-Blue: hsl(234, 14%, 74%);
+    --Grayish-Blue: hsl(233, 13%, 49%);
+    --Dark-Grayish-Blue: hsl(232, 13%, 33%);
+    --Selected-Color: linear-gradient(to top, hsl(240, 4%, 48%),hsl(237, 63%, 64%));
+    --Selected-Color-Active: linear-gradient(hsl(237, 63%, 64%),hsl(240, 4%, 48%));
+
+}
+
+* {
+    padding: 0;
+    margin: 0; 
+}
+
+*, 
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
+body { 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; 
+}
+
+.container {
+    max-width: 144rem;  
+    height: 84rem;
+    margin: 0 auto; 
+    background-color: var(--Very-Light-Grayish-Blue) ;
+    background-image:  
+                        url(./images/bg-bottom.svg),
+                        url(./images/bg-top.svg);
+    background-repeat:      no-repeat, 
+                            no-repeat;
+    background-position:    bottom left,
+                            top right;
+}
+
+.heading {
+    height: 20rem; 
+    text-align: center;
+    padding: 5rem
+}
+
+.heading--text {
+    font-size: 3.2rem;
+    color : var(--Grayish-Blue);
+    font-weight: 700; 
+    padding: 2rem; 
+}
+
+.pricing--type {
+    display: inline-block;
+    font-size: 1.5rem; 
+    color: var(--Light-Grayish-Blue);
+    font-weight: 700; 
+    padding: 1rem; 
+}
+
+/*/////////////////////////////////////////////////////////
+/////////////////////// SWITCH STYLING ///////////////////
+/////////////////////////////////////////////////////////*/
+.switch {
+    position: relative; 
+    height: 3rem; 
+    width: 6rem; 
+    display: inline-block; 
+    
+    
+}
+.selection-container {
+    position: relative; 
+    width: 100%;
+    display : flex; 
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.switch input {
+    opacity: 0; 
+    width: 0rem; 
+    height: 0rem; 
+}
+
+.slider {
+    position: absolute; 
+    cursor: pointer; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-image: var(--Selected-Color);
+    border-radius: 100px;
+    transition: all .1s ease-in;
+}
+
+.slider::before {
+    position: absolute; 
+    content: '';
+    height:  2.4rem; 
+    width: 2.4rem;
+    left: .44rem; 
+    top: .3rem; 
+    background-color: white;
+    border-radius: 100px;
+    transition: all .1s ease-in;
+}
+.switch input:checked + .slider {
+    background-image: var(--Selected-Color-Active); 
+}
+.switch input:focus + .slider {
+    box-shadow: 0 0 1px var(--Grayish-Blue);
+}
+  
+.switch input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+
+/*/////////////////////////////////////////////////////////
+/////////////////////// Main Section   ///////////////////
+/////////////////////////////////////////////////////////*/
+
+
+.main {
+    display: flex; 
+    position : relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem; 
+}
+
+
+
+.card {
+    width: 35rem; 
+    height: 45rem; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    background-color: white; 
+    border-radius: 1rem;
+    box-shadow: .2rem .2rem 5rem var(--Light-Grayish-Blue); 
+    transition: all .3s linear; 
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card--center {
+    height: 50rem; 
+    z-index: 2;
+    background-image: var(--Selected-Color); 
+    color: white; 
+}
+
+
+.selection--type {
+    font-size: 1.8rem;
+    font-weight: 700;  
+    color: var(--Grayish-Blue);
+    margin-top: 3rem; 
+}
+
+.price {
+    font-size: 6rem; 
+    color: var(--Dark-Grayish-Blue);
+    display: inline-block; 
+}
+.dollar { 
+    position: relative; 
+    top: -.5rem;
+    right: .6rem; 
+    display: inline-block;
+    font-size: 3.5rem; 
+   
+}
+.price--changer {
+    margin-top: 1rem; 
+}
+.price--professional, .selection--center {
+    color: white; 
+}
+
+.info {
+    font-size: 1.5rem; 
+    color: var(--Grayish-Blue)
+}
+.info--center {
+    color: white; 
+}
+
+hr {
+    width: 80%; 
+    margin: 0 auto; 
+    border-top: .04rem solid var(--Very-Light-Grayish-Blue);
+}
+
+.card--center hr {
+    font-weight: 400; 
+    border-top: .04rem solid; 
+}
+
+.learnMore {
+    width: 70% ; 
+    height: 4rem; 
+    border: .1rem solid var(--Light-Grayish-Blue);
+    border-radius: 1rem;
+    background-image: linear-gradient(to left, hsl(240, 4%, 48%),hsl(237, 63%, 64%));
+    color: white; 
+    margin: 2rem auto;
+    letter-spacing: .4rem;
+    font-weight: 800;
+    cursor: pointer; 
+    text-transform:uppercase
+
+}
+
+.learnMore--center {
+    background-image: none;  
+    background-color: white; 
+    color : var(--Dark-Grayish-Blue)
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .body {
+        background-position: center;
+    }
+
+    .main {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .card {
+        margin-bottom: 3rem;
+    }
+
+}
+

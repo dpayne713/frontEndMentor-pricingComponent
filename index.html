@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap" rel="stylesheet">  <title>Frontend Mentor | [Challenge Name Here]</title>
+
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="heading">
+        <h1 class="heading--text"> Our Pricing</h1>
+        <div class="selection-container">
+          <h3 class="pricing--type pricint--annually">Annually</h2>
+          <label class="switch">
+            <input type="checkbox" class="checkbox" name="timeframe-selector" id="radio--timeframe">
+            <span class="slider"></span>
+          </label>
+          <h3 class="pricing--type pricing--monthly">Monthly</h2>
+        </div>
+        
+      </div>
+    </header>
+
+    <div class="main">
+      <div class="card card--left">
+        <h3 class="selection--type selection--left">Basic</h3>
+        <p class="price price--basic"><span class="dollar">&dollar;</span><span class="price-changer">199.99</span></p>
+   
+        <p class="info info--left">500 GB Storage</p> 
+        <hr>
+        <p class="info info--left">2 Users Allowed</p>
+        <hr>
+        <p class="info info--left">Send up to 3 GB</p>
+        <hr>
+        <button class="learnMore learnMore--left">Learn More</button>
+      </div>
+
+      <div class="card card--center">
+        <h3 class="selection--type selection--center">Professional</h3>
+        <p class="price price--professional"><span class="dollar">&dollar;</span><span class="price-changer">249.99</span></p>
+       
+        <p class="info info--center">1 TB Storage</p>
+        <hr>
+        <p class="info info--center">5 Users Allowed</p>
+        <hr>
+        <p class="info info--center">Send up to 10 GB</p>
+        <hr>
+        <button class="learnMore learnMore--center">Learn More</button>
+      </div>
+
+      <div class="card card--right">
+        <h3 class="selection--type selection--right">Master</h3>
+        <p class="price price--master"><span class="dollar">&dollar;</span><span class="price-changer">399.99</span></p>
+        
+        <p class="info info--right">2 TB Storage</p>
+        <hr>
+        <p class="info info--right">10 Users Allowed</p>
+        <hr>
+        <p class="info info--right">Send up to 20 GB</p>
+        <hr>
+        <button class="learnMore learnMore--right">Learn More</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+
+    const prices = {
+      annually : {
+        basic : `<span class="dollar">&dollar;</span><span class="price-changer">199.99</span>`,
+        pro : `<span class="dollar">&dollar;</span><span class="price-changer">249.99</span>`,
+        master : `<span class="dollar">&dollar;</span><span class="price-changer">399.99</span>`
+      },
+      monthly : {
+        basic :  `<span class="dollar">&dollar;</span><span class="price-changer">19.99</span>`,
+        pro : `<span class="dollar">&dollar;</span><span class="price-changer">24.99</span>`, 
+        master : `<span class="dollar">&dollar;</span><span class="price-changer">39.99</span>`
+      }
+
+    }
+
+    const doc  = {
+      priceBasic : document.querySelector('.price--basic'),
+      pricePro : document.querySelector('.price--professional'),
+      priceMaster : document.querySelector('.price--master')
+    }
+
+    function removeChildren(selector) {
+      
+      while(selector.firstChild) {
+        selector.removeChild(selector.firstChild)
+      }
+    }
+
+    document.querySelector('.checkbox').addEventListener('change', function(event) {
+      if (this.checked) {
+        
+        removeChildren(doc.priceBasic)
+        removeChildren(doc.pricePro)
+        removeChildren(doc.priceMaster)
+
+        doc.priceBasic.insertAdjacentHTML('beforeend', prices.monthly.basic)
+        doc.pricePro.insertAdjacentHTML('beforeend', prices.monthly.pro)
+        doc.priceMaster.insertAdjacentHTML('beforeend', prices.monthly.master)
+       
+        console.log('checked')
+      } else {
+
+        removeChildren(doc.priceBasic)
+        removeChildren(doc.pricePro)
+        removeChildren(doc.priceMaster)        
+
+        doc.priceBasic.insertAdjacentHTML('beforeend', prices.annually.basic)
+        doc.pricePro.insertAdjacentHTML('beforeend', prices.annually.pro)
+        doc.priceMaster.insertAdjacentHTML('beforeend', prices.annually.master)
+
+       
+        console.log('not checked')
+      }
+      console.log(event)
+     
+    })
+
+
+
+
+
+
+
+  </script>
+
+ 
+
+
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>. -->
+  </div>
+</body>
+</html>
