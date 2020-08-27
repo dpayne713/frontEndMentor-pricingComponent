@@ -55,6 +55,7 @@ body {
     background-position:    bottom left,
                             top right;
     background-attachment: fixed; 
+    text-align: center; 
 }
 
 .heading {
@@ -268,3 +269,15 @@ hr {
 
 }
 
+.attribution {
+    position: relative; 
+    width: 50%;
+    margin: 2rem auto; 
+    color: gray; 
+}
+.attribution a:visited, 
+.attribution a {
+    text-decoration: none;
+    color: var(--Dark-Grayish-Blue);
+    cursor: pointer; 
+}
