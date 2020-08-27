@@ -44,7 +44,7 @@ body {
 
 .container {
     max-width: 144rem;  
-    height: 84rem;
+    height: 100vh; 
     margin: 0 auto; 
     background-color: var(--Very-Light-Grayish-Blue) ;
     background-image:  
@@ -54,6 +54,7 @@ body {
                             no-repeat;
     background-position:    bottom left,
                             top right;
+    background-attachment: fixed; 
 }
 
 .heading {
@@ -260,6 +261,9 @@ hr {
 
     .card {
         margin-bottom: 3rem;
+    }
+    .container  {
+        height: 100%;
     }
 
 }
